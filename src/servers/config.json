@@ -1,0 +1,5 @@
+{
+    "servers":[
+        {"host":"x", "port":"x", "timeout":200}
+    ]
+}
