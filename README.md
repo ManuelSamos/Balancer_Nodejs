@@ -18,6 +18,18 @@ Configure Port and pats to certificates to use in the balancer in your <code>.en
 > CERTIFICATE_PATH_KEY=
 > 
 > CERTIFICATE_PATH_CER=
+> 
+> MAXLISTENERS=
+> 
+> ALGORITHM=
+
+Im have two type to <code>ALGORITHM</code>:
+
+* <strong>leastConnections:</strong> &nbsp; Is a load balancing algorithm that directs traffic to the server with the fewest active connections. It's a dynamic algorithm that helps prevent servers from becoming overloaded. 
+
+* <strong>roundRobin:</strong> &nbsp; Is one of the CPU scheduling algorithms in which every process gets a fixed amount of time quantum to execute the process. In this algorithm, every process gets executed cyclically.
+
+
 
 
 ## <img src="https://media2.giphy.com/media/QssGEmpkyEOhBCb7e1/giphy.gif?cid=ecf05e47a0n3gi1bfqntqmob8g9aid1oyj2wr3ds3mg700bl&rid=giphy.gif" width ="25"> Instalation and build

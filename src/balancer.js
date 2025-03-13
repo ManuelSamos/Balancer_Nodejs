@@ -5,8 +5,9 @@ const fs = require('fs');
 const balancerService = require("./utils/processService");
 
 const {
-    HTTP_SERVER_PORT = 3000,
-    HTTPS_SERVER_PORT = 3443,
+    MAXLISTENERS,
+    HTTP_SERVER_PORT,
+    HTTPS_SERVER_PORT,
     CERTIFICATE_PATH_KEY,
     CERTIFICATE_PATH_CER
 } = process.env;
@@ -27,7 +28,9 @@ try {
 }
 
 
-const startServer = (server, port, protocol) => {
+const startServer = (server, port, protocol) => {   
+    server.setMaxListeners(parseInt(MAXLISTENERS));
+
     server.listen(port, () => {
         console.log(`✅ Server ${protocol} running on port ${port}`);
     }).on("error", (err) => {
@@ -36,6 +39,7 @@ const startServer = (server, port, protocol) => {
 }
 
 const httpServer = http.createServer(balancerService);
+
 startServer(httpServer, HTTP_SERVER_PORT, "HTTP");
 
 if (httpsOptions.key && httpsOptions.cert) {
